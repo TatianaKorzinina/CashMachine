@@ -21,12 +21,13 @@ namespace CashMachine.Controllers
             return repository.Balance();
         }
         // GET api/values/5
-        [HttpGet("{id}")]
+        [HttpGet("{id:min(100)}")]
         public IEnumerable<string> Get(int id)
         {
            
             Repository repository = new Repository();
-            if (repository.Balance() >= id)
+            if (id % 100 != 0) yield return "введите сумму кратную 100 рублям";
+            else if (repository.Balance() >= id)
             {
                 var money = repository.GetMoney(id);
 

@@ -47,44 +47,47 @@ namespace CashMachine
                 int banknote1000 = 0;
                 int banknote200 = 0;
                 int banknote100 = 0;
-               
-                   
-                    while (summ >= 5000)
-                    {
-                        summ = summ - 5000;
-                        banknote5000 += 1;
+                
+                banknote5000 = summ / 5000;
+                summ = summ % 5000;
 
-                    }
+                if (banknote5000 != 0)
+                {
                     banknotes.Add(5000, banknote5000);
+                }
 
-                    while (summ >= 1000)
-                    {
-                        summ = summ - 1000;
-                        banknote1000 += 1;
+                    
+                banknote1000 = summ / 1000;
+                summ = summ % 1000; 
 
-                    }
+                if (banknote1000 != 0)
+                {
                     banknotes.Add(1000, banknote1000);
+                }
 
-                    while (summ >= 200)
-                    {
-                        summ = summ - 200;
-                        banknote200 += 1;
+                banknote200 = summ / 200;
+                summ = summ % 200;
 
-                    }
+                if (banknote200 != 0)
+                {
                     banknotes.Add(200, banknote200);
+                }
 
-                    while (summ >= 100)
-                    {
-                        summ = summ - 100;
-                        banknote100 += 1;
-
-                    }
+                banknote100 = summ / 100;
+                if (banknote100 != 0)
+                {
                     banknotes.Add(100, banknote100);
+                }
+
+                return banknotes;
+
+            }
+                   
 
                  
-                    return banknotes;
+                    
           
-            }
+            
 
         }
 
