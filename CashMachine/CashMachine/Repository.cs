@@ -13,7 +13,7 @@ namespace CashMachine
         //    context = con;
         //}
 
-        public int Balance()
+        public Account Balance()
         {
             using (ApplicationContext context = new ApplicationContext())
             {
@@ -29,19 +29,19 @@ namespace CashMachine
                     context.SaveChanges();
                 }
 
-                var balance = context.Accounts.First().Amount;
+                var balance = context.Accounts.First();
                 return balance;
             }
         }
 
-        public Dictionary<int, int> GetMoney(int summ)
+        public List<Money> GetMoney(int summ)
         {
             using (ApplicationContext context = new ApplicationContext())
             {
                 var balance = context.Accounts.First().Amount;
                 context.Accounts.First().Amount = balance - summ;
                 context.SaveChanges();
-                Dictionary<int, int> banknotes = new Dictionary<int, int>();
+                List<Money> banknotes = new List<Money>();
                
                 int banknote5000 = 0;
                 int banknote1000 = 0;
@@ -53,7 +53,7 @@ namespace CashMachine
 
                 if (banknote5000 != 0)
                 {
-                    banknotes.Add(5000, banknote5000);
+                    banknotes.Add( new Money { Value = 5000, Quantity = banknote5000 });
                 }
 
                     
@@ -62,7 +62,7 @@ namespace CashMachine
 
                 if (banknote1000 != 0)
                 {
-                    banknotes.Add(1000, banknote1000);
+                    banknotes.Add(new Money { Value = 1000, Quantity = banknote1000 });
                 }
 
                 banknote200 = summ / 200;
@@ -70,13 +70,13 @@ namespace CashMachine
 
                 if (banknote200 != 0)
                 {
-                    banknotes.Add(200, banknote200);
+                    banknotes.Add(new Money { Value = 200, Quantity = banknote200 });
                 }
 
                 banknote100 = summ / 100;
                 if (banknote100 != 0)
                 {
-                    banknotes.Add(100, banknote100);
+                    banknotes.Add(new Money { Value = 100, Quantity = banknote100 });
                 }
 
                 return banknotes;
