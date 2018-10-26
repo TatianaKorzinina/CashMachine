@@ -118,3 +118,95 @@
 2018-10-26 13:19:22.0635 Info Adding target File Target[ownFile-web]
 2018-10-26 13:19:22.0945 Info Configured from an XML element in C:\Work\Tania\Git\CashMachine\CashMachine\CashMachine\bin\Debug\netcoreapp2.0\nlog.config...
 2018-10-26 13:19:22.1313 Info Found 45 configuration items
+2018-10-26 16:03:10.5156 Info Message Template Auto Format enabled
+2018-10-26 16:03:10.5303 Info Loading assembly: NLog.Web.AspNetCore
+2018-10-26 16:03:10.6116 Info Adding target File Target[allfile]
+2018-10-26 16:03:10.6159 Info Adding target File Target[ownFile-web]
+2018-10-26 16:03:10.6159 Info Configured from an XML element in C:\Work\Tania\Git\CashMachine\CashMachine\CashMachine\bin\Debug\netcoreapp2.0\NLog.config...
+2018-10-26 16:03:10.6567 Info Found 45 configuration items
+2018-10-26 16:03:10.6851 Info Configuration initialized.
+2018-10-26 16:03:10.7123 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.5.10.8381. Product version: 4.5.10.
+2018-10-26 16:03:12.5753 Info Shutting down logging...
+2018-10-26 16:03:12.6262 Info Logger has been shut down.
+2018-10-26 16:04:10.1335 Info Message Template Auto Format enabled
+2018-10-26 16:04:10.1480 Info Loading assembly: NLog.Web.AspNetCore
+2018-10-26 16:04:10.2278 Info Adding target File Target[allfile]
+2018-10-26 16:04:10.2278 Info Adding target File Target[ownFile-web]
+2018-10-26 16:04:10.2377 Info Configured from an XML element in C:\Work\Tania\Git\CashMachine\CashMachine\CashMachine\bin\Debug\netcoreapp2.0\NLog.config...
+2018-10-26 16:04:10.2571 Info Found 45 configuration items
+2018-10-26 16:04:10.2804 Info Configuration initialized.
+2018-10-26 16:04:10.2857 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.5.10.8381. Product version: 4.5.10.
+2018-10-26 16:04:13.1894 Info Shutting down logging...
+2018-10-26 16:04:13.2276 Info Logger has been shut down.
+2018-10-26 16:15:43.0524 Info Message Template Auto Format enabled
+2018-10-26 16:15:43.0680 Info Loading assembly: NLog.Web.AspNetCore
+2018-10-26 16:15:43.1664 Info Adding target File Target[allfile]
+2018-10-26 16:15:43.2120 Info Adding target File Target[ownFile-web]
+2018-10-26 16:15:43.2120 Info Configured from an XML element in C:\Work\Tania\Git\CashMachine\CashMachine\CashMachine\bin\Debug\netcoreapp2.0\nlog.config...
+2018-10-26 16:15:43.2429 Info Found 45 configuration items
+2018-10-26 17:39:24.1238 Info Message Template Auto Format enabled
+2018-10-26 17:39:24.1572 Info Loading assembly: NLog.Web.AspNetCore
+2018-10-26 17:39:24.3200 Info Adding target File Target[allfile]
+2018-10-26 17:39:24.3347 Info Adding target File Target[ownFile-web]
+2018-10-26 17:39:24.3347 Info Configured from an XML element in C:\Work\Tania\Git\CashMachine\CashMachine\CashMachine\bin\Debug\netcoreapp2.0\nlog.config...
+2018-10-26 17:39:24.3690 Info Found 45 configuration items
+2018-10-26 17:41:34.1071 Info Message Template Auto Format enabled
+2018-10-26 17:41:34.1336 Info Loading assembly: NLog.Web.AspNetCore
+2018-10-26 17:41:34.3887 Info Adding target File Target[allfile]
+2018-10-26 17:41:34.4406 Info Adding target File Target[ownFile-web]
+2018-10-26 17:41:34.4582 Info Configured from an XML element in C:\Work\Tania\Git\CashMachine\CashMachine\CashMachine\bin\Debug\netcoreapp2.0\nlog.config...
+2018-10-26 17:41:34.5032 Info Found 45 configuration items
+2018-10-26 17:57:18.9432 Info Message Template Auto Format enabled
+2018-10-26 17:57:18.9678 Info Loading assembly: NLog.Web.AspNetCore
+2018-10-26 17:57:19.1510 Info Adding target File Target[allfile]
+2018-10-26 17:57:19.1649 Info Adding target File Target[ownFile-web]
+2018-10-26 17:57:19.1649 Info Configured from an XML element in C:\Work\Tania\Git\CashMachine\CashMachine\CashMachine\bin\Debug\netcoreapp2.0\nlog.config...
+2018-10-26 17:57:19.2079 Info Found 45 configuration items
+2018-10-26 17:58:29.9610 Info Message Template Auto Format enabled
+2018-10-26 17:58:29.9804 Info Loading assembly: NLog.Web.AspNetCore
+2018-10-26 17:58:30.1957 Info Adding target File Target[allfile]
+2018-10-26 17:58:30.2490 Info Adding target File Target[ownFile-web]
+2018-10-26 17:58:30.2604 Info Configured from an XML element in C:\Work\Tania\Git\CashMachine\CashMachine\CashMachine\bin\Debug\netcoreapp2.0\nlog.config...
+2018-10-26 17:58:30.3001 Info Found 45 configuration items
+2018-10-26 18:00:30.5006 Info Message Template Auto Format enabled
+2018-10-26 18:00:30.5186 Info Loading assembly: NLog.Web.AspNetCore
+2018-10-26 18:00:30.6257 Info Adding target File Target[allfile]
+2018-10-26 18:00:30.6430 Info Adding target File Target[ownFile-web]
+2018-10-26 18:00:30.6501 Info Configured from an XML element in C:\Work\Tania\Git\CashMachine\CashMachine\CashMachine\bin\Debug\netcoreapp2.0\nlog.config...
+2018-10-26 18:00:30.6753 Info Found 45 configuration items
+2018-10-26 18:01:53.2710 Info Message Template Auto Format enabled
+2018-10-26 18:01:53.2915 Info Loading assembly: NLog.Web.AspNetCore
+2018-10-26 18:01:53.4655 Info Adding target File Target[allfile]
+2018-10-26 18:01:53.4780 Info Adding target File Target[ownFile-web]
+2018-10-26 18:01:53.4890 Info Configured from an XML element in C:\Work\Tania\Git\CashMachine\CashMachine\CashMachine\bin\Debug\netcoreapp2.0\nlog.config...
+2018-10-26 18:01:53.5182 Info Found 45 configuration items
+2018-10-26 18:05:20.7030 Info Message Template Auto Format enabled
+2018-10-26 18:05:20.7242 Info Loading assembly: NLog.Web.AspNetCore
+2018-10-26 18:05:20.9134 Info Adding target File Target[allfile]
+2018-10-26 18:05:20.9298 Info Adding target File Target[ownFile-web]
+2018-10-26 18:05:20.9415 Info Configured from an XML element in C:\Work\Tania\Git\CashMachine\CashMachine\CashMachine\bin\Debug\netcoreapp2.0\nlog.config...
+2018-10-26 18:05:20.9714 Info Found 45 configuration items
+2018-10-26 18:10:20.0657 Info Message Template Auto Format enabled
+2018-10-26 18:10:20.0839 Info Loading assembly: NLog.Web.AspNetCore
+2018-10-26 18:10:20.1827 Info Adding target File Target[allfile]
+2018-10-26 18:10:20.1939 Info Adding target File Target[ownFile-web]
+2018-10-26 18:10:20.1939 Info Configured from an XML element in C:\Work\Tania\Git\CashMachine\CashMachine\CashMachine\bin\Debug\netcoreapp2.0\nlog.config...
+2018-10-26 18:10:20.2330 Info Found 45 configuration items
+2018-10-26 18:13:04.2686 Info Message Template Auto Format enabled
+2018-10-26 18:13:04.2872 Info Loading assembly: NLog.Web.AspNetCore
+2018-10-26 18:13:04.4344 Info Adding target File Target[allfile]
+2018-10-26 18:13:04.4468 Info Adding target File Target[ownFile-web]
+2018-10-26 18:13:04.4576 Info Configured from an XML element in C:\Work\Tania\Git\CashMachine\CashMachine\CashMachine\bin\Debug\netcoreapp2.0\nlog.config...
+2018-10-26 18:13:04.4894 Info Found 45 configuration items
+2018-10-26 18:18:42.4523 Info Message Template Auto Format enabled
+2018-10-26 18:18:42.4721 Info Loading assembly: NLog.Web.AspNetCore
+2018-10-26 18:18:42.6112 Info Adding target File Target[allfile]
+2018-10-26 18:18:42.6754 Info Adding target File Target[ownFile-web]
+2018-10-26 18:18:42.6754 Info Configured from an XML element in C:\Work\Tania\Git\CashMachine\CashMachine\CashMachine\bin\Debug\netcoreapp2.0\nlog.config...
+2018-10-26 18:18:42.7188 Info Found 45 configuration items
+2018-10-26 18:28:25.1000 Info Message Template Auto Format enabled
+2018-10-26 18:28:25.1196 Info Loading assembly: NLog.Web.AspNetCore
+2018-10-26 18:28:25.2681 Info Adding target File Target[allfile]
+2018-10-26 18:28:25.3321 Info Adding target File Target[ownFile-web]
+2018-10-26 18:28:25.3321 Info Configured from an XML element in C:\Work\Tania\Git\CashMachine\CashMachine\CashMachine\bin\Debug\netcoreapp2.0\nlog.config...
+2018-10-26 18:28:25.3739 Info Found 45 configuration items

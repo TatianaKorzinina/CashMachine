@@ -13,6 +13,18 @@ namespace CashMachine
         //    context = con;
         //}
 
+
+        public List<Money> GetBancnotesInfo()
+        {
+            using (ApplicationContext context = new ApplicationContext())
+            {
+                var bancnotesInfo = context.Money.
+                    OrderByDescending (n=>n.Value).ToList();
+                return bancnotesInfo;
+            }
+
+        }    
+
         public Account Balance()
         {
             using (ApplicationContext context = new ApplicationContext())
@@ -34,53 +46,53 @@ namespace CashMachine
             }
         }
 
-        public List<Money> GetMoney(int summ)
+        public List<Money> GetMoney(int getCash)
         {
             using (ApplicationContext context = new ApplicationContext())
             {
-                var balance = context.Accounts.First().Amount;
-                context.Accounts.First().Amount = balance - summ;
-                context.SaveChanges();
-                List<Money> banknotes = new List<Money>();
-               
-                int banknote5000 = 0;
-                int banknote1000 = 0;
-                int banknote200 = 0;
-                int banknote100 = 0;
-                
-                banknote5000 = summ / 5000;
-                summ = summ % 5000;
+                //var balance = context.Accounts.First().Amount;
+                //context.Accounts.First().Amount = balance - summ;
+                //context.SaveChanges();
+                List<Money> banknotes = GetBancnotesInfo();
+                List<Money> userBanknotes = new List<Money>();
 
-                if (banknote5000 != 0)
+                if (banknotes.Any())
                 {
-                    banknotes.Add( new Money { Value = 5000, Quantity = banknote5000 });
-                }
 
+                    int reminder = getCash;
+                    foreach (var nominal in banknotes)
+                    {
+                        var quantity = 0;
+
+                        if (nominal.Quantity != 0 && reminder != 0)
+                        {
+
+                            quantity = Math.Min(nominal.Quantity, reminder / nominal.Value);
+                            reminder -= quantity * nominal.Value;
+                            nominal.Quantity -= quantity;
+                        }
+                        if (quantity != 0)
+                        {
+                            userBanknotes.Add(new Money { Value = nominal.Value, Quantity = quantity });
+                        }
+                    }
+                    if (reminder == 0)
+                    {
+                        foreach (var nominal in banknotes)
+                        {
+                            context.Money.FirstOrDefault(x => x.Id == nominal.Id).Quantity = nominal.Quantity;
+                            
+                            
+                        }
+                        context.Accounts.First().Amount -= getCash;
+                        context.SaveChanges();
+                        return userBanknotes;
+                    }
+                    else return null;
                     
-                banknote1000 = summ / 1000;
-                summ = summ % 1000; 
-
-                if (banknote1000 != 0)
-                {
-                    banknotes.Add(new Money { Value = 1000, Quantity = banknote1000 });
+                    
                 }
-
-                banknote200 = summ / 200;
-                summ = summ % 200;
-
-                if (banknote200 != 0)
-                {
-                    banknotes.Add(new Money { Value = 200, Quantity = banknote200 });
-                }
-
-                banknote100 = summ / 100;
-                if (banknote100 != 0)
-                {
-                    banknotes.Add(new Money { Value = 100, Quantity = banknote100 });
-                }
-                
-                return banknotes;
-
+                else return null;
             }
         
         }

@@ -26,16 +26,16 @@ namespace CashMachine.Controllers
         }
 
         // GET api/home/5
-        [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        [HttpPost]
+        public IActionResult Post(int getCash)
         {
             Repository repository = new Repository();
 
-            if (repository.Balance().Amount >= id && id>=100 && id % 100 == 0)
+            if (repository.Balance().Amount >= getCash && getCash>=100 && getCash % 100 == 0)
             {
                 Atm atm = new Atm();
 
-                atm.money =  repository.GetMoney(id);
+                atm.money =  repository.GetMoney(getCash);
                 return Ok(atm);
             }
             else return BadRequest(new Errors { ErrorMessage= "сумма должа быть кратна 100 и не превышать ваш баланс" });
@@ -43,13 +43,13 @@ namespace CashMachine.Controllers
             
         }
 
-        // POST api/values
-        [HttpPost]
-        public void Post(int changeBalance)
+        //POST api/values
+       [HttpPost]
+        public void Post1([FromBody] Account changeBalance)
         {
             //победить NullReferenceExeption!!!!!!
             Repository repository = new Repository();
-            repository.AccountRefill(changeBalance);
+            repository.AccountRefill(changeBalance.Amount);
 
         }
 
