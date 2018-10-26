@@ -26,15 +26,20 @@ namespace CashMachine.Controllers
         }
 
         // GET api/home/5
-        [HttpPost]
-        public IActionResult Post(int getCash)
+        [HttpPost("getmoney")]
+        public IActionResult Post([FromBody] Account changeBalance)
         {
             Repository repository = new Repository();
-
-            if (repository.Balance().Amount >= getCash && getCash>=100 && getCash % 100 == 0)
+            //if (changeBalance == null)
+            //{
+            //    return BadRequest(new Errors { ErrorMessage = "сумма должа быть кратна 100 и не превышать ваш баланс" });
+            //}
+            
+            if (changeBalance != null && repository.Balance().Amount >= changeBalance.Amount &&
+                changeBalance.Amount >= 100 && changeBalance.Amount % 100 == 0)
             {
                 Atm atm = new Atm();
-
+                var getCash = changeBalance.Amount;
                 atm.money =  repository.GetMoney(getCash);
                 return Ok(atm);
             }
@@ -44,12 +49,23 @@ namespace CashMachine.Controllers
         }
 
         //POST api/values
-       [HttpPost]
-        public void Post1([FromBody] Account changeBalance)
+       [HttpPost("changebalance")]
+        public IActionResult Post1([FromBody] Account changeBalance)
         {
-            //победить NullReferenceExeption!!!!!!
+            
             Repository repository = new Repository();
-            repository.AccountRefill(changeBalance.Amount);
+            if (changeBalance == null)
+            {
+                return BadRequest(new Errors
+                { ErrorMessage = "сумма должна быть положительным целым числом" });
+            }
+            if (changeBalance.Amount > 0)
+            {
+                repository.AccountRefill(changeBalance.Amount);
+                return Ok(repository.Balance());
+            }
+            else return BadRequest(new Errors
+            { ErrorMessage = "сумма должна быть положительным целым числом" });
 
         }
 
