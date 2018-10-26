@@ -5,15 +5,8 @@ using System.Threading.Tasks;
 
 namespace CashMachine
 {
-    public class Repository
+    public class Repository:IRepository
     {
-        
-        //public Repository(ApplicationContext con)
-        //{
-        //    context = con;
-        //}
-
-
         public List<Money> GetBancnotesInfo()
         {
             using (ApplicationContext context = new ApplicationContext())
@@ -50,15 +43,11 @@ namespace CashMachine
         {
             using (ApplicationContext context = new ApplicationContext())
             {
-                //var balance = context.Accounts.First().Amount;
-                //context.Accounts.First().Amount = balance - summ;
-                //context.SaveChanges();
                 List<Money> banknotes = GetBancnotesInfo();
                 List<Money> userBanknotes = new List<Money>();
 
                 if (banknotes.Any())
                 {
-
                     int reminder = getCash;
                     foreach (var nominal in banknotes)
                     {
@@ -66,7 +55,6 @@ namespace CashMachine
 
                         if (nominal.Quantity != 0 && reminder != 0)
                         {
-
                             quantity = Math.Min(nominal.Quantity, reminder / nominal.Value);
                             reminder -= quantity * nominal.Value;
                             nominal.Quantity -= quantity;
@@ -80,9 +68,7 @@ namespace CashMachine
                     {
                         foreach (var nominal in banknotes)
                         {
-                            context.Money.FirstOrDefault(x => x.Id == nominal.Id).Quantity = nominal.Quantity;
-                            
-                            
+                            context.Money.FirstOrDefault(x => x.Id == nominal.Id).Quantity = nominal.Quantity; 
                         }
                         context.Accounts.First().Amount -= getCash;
                         context.SaveChanges();

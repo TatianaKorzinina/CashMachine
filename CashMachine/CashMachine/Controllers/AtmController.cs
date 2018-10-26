@@ -8,20 +8,21 @@ using Microsoft.Extensions.Logging;
 namespace CashMachine.Controllers
 {
     [Route("api/[controller]")]
-    public class HomeController : Controller
+    public class AtmController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<AtmController> _logger;
+        private IRepository repository;
 
-        public HomeController(ILogger<HomeController> logger)
+        public AtmController(ILogger<AtmController> logger, IRepository repo)
         {
             _logger = logger;
+            repository = repo;
         }
 
         // GET api/home
         [HttpGet]
         public Account Get()
         {
-            Repository repository = new Repository();
             return repository.Balance();
         }
 
@@ -29,12 +30,7 @@ namespace CashMachine.Controllers
         [HttpPost("getmoney")]
         public IActionResult Post([FromBody] Account changeBalance)
         {
-            Repository repository = new Repository();
-            //if (changeBalance == null)
-            //{
-            //    return BadRequest(new Errors { ErrorMessage = "сумма должа быть кратна 100 и не превышать ваш баланс" });
-            //}
-            
+           
             if (changeBalance != null && repository.Balance().Amount >= changeBalance.Amount &&
                 changeBalance.Amount >= 100 && changeBalance.Amount % 100 == 0)
             {
@@ -52,8 +48,6 @@ namespace CashMachine.Controllers
        [HttpPost("changebalance")]
         public IActionResult Post1([FromBody] Account changeBalance)
         {
-            
-            Repository repository = new Repository();
             if (changeBalance == null)
             {
                 return BadRequest(new Errors
