@@ -78,16 +78,21 @@ namespace CashMachine
                 {
                     banknotes.Add(new Money { Value = 100, Quantity = banknote100 });
                 }
-
+                
                 return banknotes;
 
             }
-                   
+        
+        }
 
-                 
-                    
-          
-            
+        public void AccountRefill(int changeBalance)
+        {
+            using (ApplicationContext context = new ApplicationContext())
+            {
+                context.Accounts.First().Amount += changeBalance ;
+                context.SaveChanges();
+            }
+
 
         }
 

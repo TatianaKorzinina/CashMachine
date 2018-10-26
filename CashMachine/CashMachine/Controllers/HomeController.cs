@@ -29,20 +29,14 @@ namespace CashMachine.Controllers
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-           
             Repository repository = new Repository();
-            //if (id % 100 != 0) yield return "введите сумму кратную 100 рублям";
+
             if (repository.Balance().Amount >= id && id>=100 && id % 100 == 0)
             {
                 Atm atm = new Atm();
 
                 atm.money =  repository.GetMoney(id);
                 return Ok(atm);
-
-                //foreach (var item in money)
-                //{
-                //    yield return $"по {item.Key}  -- {item.Value} купюр";
-                //}
             }
             else return BadRequest(new Errors { ErrorMessage= "сумма должа быть кратна 100 и не превышать ваш баланс" });
 
@@ -51,8 +45,12 @@ namespace CashMachine.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody]string value)
+        public void Post(int changeBalance)
         {
+            //победить NullReferenceExeption!!!!!!
+            Repository repository = new Repository();
+            repository.AccountRefill(changeBalance);
+
         }
 
         // PUT api/values/5

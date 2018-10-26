@@ -16,6 +16,7 @@ namespace CashMachine
 
 
         public DbSet<Account> Accounts { get; set; }
+        public DbSet<Money> Money { get; set; }
 
         public ApplicationContext()
         {
