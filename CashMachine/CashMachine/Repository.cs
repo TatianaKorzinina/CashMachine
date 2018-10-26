@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace CashMachine
 {
     public class Repository:IRepository
-    {
+    {   // get info about bancnotes values and quantities
         public List<Money> GetBancnotesInfo()
         {
             using (ApplicationContext context = new ApplicationContext())
@@ -15,14 +15,12 @@ namespace CashMachine
                     OrderByDescending (n=>n.Value).ToList();
                 return bancnotesInfo;
             }
-
         }    
 
         public Account Balance()
         {
             using (ApplicationContext context = new ApplicationContext())
             {
-
                 if (!context.Accounts.Any())
                 {
                     Account account = new Account
@@ -33,7 +31,6 @@ namespace CashMachine
                     context.Add(account);
                     context.SaveChanges();
                 }
-
                 var balance = context.Accounts.First();
                 return balance;
             }
@@ -74,25 +71,19 @@ namespace CashMachine
                         context.SaveChanges();
                         return userBanknotes;
                     }
-                    else return null;
-                    
-                    
+                    else return null;    
                 }
                 else return null;
-            }
-        
+            }        
         }
 
-        public void AccountRefill(int changeBalance)
+        public void AccountRefill(int refillBalance)
         {
             using (ApplicationContext context = new ApplicationContext())
             {
-                context.Accounts.First().Amount += changeBalance ;
+                context.Accounts.First().Amount += refillBalance ;
                 context.SaveChanges();
             }
-
-
         }
-
     }
 }

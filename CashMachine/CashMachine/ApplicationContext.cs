@@ -8,13 +8,6 @@ namespace CashMachine
 {
     public class ApplicationContext: DbContext
     {
-        //public ApplicationContext(DbContextOptions<ApplicationContext> options) 
-        //: base (options)
-        //{
-           
-        //}
-
-
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Money> Money { get; set; }
 
@@ -27,7 +20,5 @@ namespace CashMachine
         {
             optionsBuilder.UseSqlServer("Server=Tanianotebook\\sqlexpress;Database=CashMachine;Trusted_Connection=True;");
         }
-
-
     }
 }

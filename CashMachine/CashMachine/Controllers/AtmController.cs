@@ -19,23 +19,23 @@ namespace CashMachine.Controllers
             repository = repo;
         }
 
-        // GET api/home
+        // GET api/atm
         [HttpGet]
         public Account Get()
         {
             return repository.Balance();
         }
 
-        // GET api/home/5
-        [HttpPost("getmoney")]
-        public IActionResult Post([FromBody] Account changeBalance)
+        // POST api/atm/getcash
+        [HttpPost("getcash")]
+        public IActionResult Post([FromBody] Account getMoney)
         {
            
-            if (changeBalance != null && repository.Balance().Amount >= changeBalance.Amount &&
-                changeBalance.Amount >= 100 && changeBalance.Amount % 100 == 0)
+            if (getMoney != null && repository.Balance().Amount >= getMoney.Amount &&
+                getMoney.Amount >= 100 && getMoney.Amount % 100 == 0)
             {
                 Atm atm = new Atm();
-                var getCash = changeBalance.Amount;
+                var getCash = getMoney.Amount;
                 atm.money =  repository.GetMoney(getCash);
                 return Ok(atm);
             }
@@ -44,18 +44,18 @@ namespace CashMachine.Controllers
             
         }
 
-        //POST api/values
-       [HttpPost("changebalance")]
-        public IActionResult Post1([FromBody] Account changeBalance)
+        //POST api/atm/refillbalance
+       [HttpPost("refillbalance")]
+        public IActionResult Post1([FromBody] Account refillBalance)
         {
-            if (changeBalance == null)
+            if (refillBalance == null)
             {
                 return BadRequest(new Errors
                 { ErrorMessage = "сумма должна быть положительным целым числом" });
             }
-            if (changeBalance.Amount > 0)
+            if (refillBalance.Amount > 0)
             {
-                repository.AccountRefill(changeBalance.Amount);
+                repository.AccountRefill(refillBalance.Amount);
                 return Ok(repository.Balance());
             }
             else return BadRequest(new Errors
