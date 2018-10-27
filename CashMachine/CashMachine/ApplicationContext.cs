@@ -11,10 +11,10 @@ namespace CashMachine
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Money> Money { get; set; }
 
-        public ApplicationContext()
-        {
-            Database.EnsureCreated();
-        }
+        //public ApplicationContext()
+        //{
+        //    base.Database.EnsureCreated();
+        //}
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

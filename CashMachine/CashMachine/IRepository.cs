@@ -7,9 +7,9 @@ namespace CashMachine
 {
     public interface IRepository
     {
-        List<Money> GetBancnotesInfo();
-        Account Balance();
-        List<Money> GetMoney(int getCash);
+        IEnumerable<Money> GetBancnotesInfo();
+        Account GetBalance();
+        IEnumerable<Money> GetMoney(int getCash);
         void AccountRefill(int changeBalance);
 
     }

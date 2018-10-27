@@ -7,7 +7,7 @@ namespace CashMachine
 {
     public class Repository:IRepository
     {   // get info about bancnotes values and quantities
-        public List<Money> GetBancnotesInfo()
+        public IEnumerable<Money> GetBancnotesInfo()
         {
             using (ApplicationContext context = new ApplicationContext())
             {
@@ -17,7 +17,7 @@ namespace CashMachine
             }
         }    
 
-        public Account Balance()
+        public Account GetBalance()
         {
             using (ApplicationContext context = new ApplicationContext())
             {
@@ -36,12 +36,12 @@ namespace CashMachine
             }
         }
 
-        public List<Money> GetMoney(int getCash)
+        public IEnumerable<Money> GetMoney(int getCash)
         {
             using (ApplicationContext context = new ApplicationContext())
             {
-                List<Money> banknotes = GetBancnotesInfo();
-                List<Money> userBanknotes = new List<Money>();
+                var banknotes = GetBancnotesInfo();
+                var userBanknotes = new List<Money>();
 
                 if (banknotes.Any())
                 {

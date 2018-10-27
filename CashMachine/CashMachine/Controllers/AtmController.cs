@@ -23,7 +23,7 @@ namespace CashMachine.Controllers
         [HttpGet]
         public Account Get()
         {
-            return repository.Balance();
+            return repository.GetBalance();
         }
 
         // POST api/atm/getcash
@@ -31,13 +31,20 @@ namespace CashMachine.Controllers
         public IActionResult Post([FromBody] Account getMoney)
         {
            
-            if (getMoney != null && repository.Balance().Amount >= getMoney.Amount &&
+            if (getMoney != null && repository.GetBalance().Amount >= getMoney.Amount &&
                 getMoney.Amount >= 100 && getMoney.Amount % 100 == 0)
             {
                 Atm atm = new Atm();
                 var getCash = getMoney.Amount;
-                atm.money =  repository.GetMoney(getCash);
-                return Ok(atm);
+                atm.Money =  repository.GetMoney(getCash);
+                if (atm.Money != null)
+                {
+                    return Ok(atm);
+                }
+                else
+                {
+                    return BadRequest(new Errors { ErrorMessage = "невозможно выдать указанную сумму" });
+                }
             }
             else return BadRequest(new Errors { ErrorMessage= "сумма должа быть кратна 100 и не превышать ваш баланс" });
 
@@ -56,7 +63,7 @@ namespace CashMachine.Controllers
             if (refillBalance.Amount > 0)
             {
                 repository.AccountRefill(refillBalance.Amount);
-                return Ok(repository.Balance());
+                return Ok(repository.GetBalance());
             }
             else return BadRequest(new Errors
             { ErrorMessage = "сумма должна быть положительным целым числом" });
