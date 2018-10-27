@@ -11,14 +11,27 @@ namespace CashMachine
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Money> Money { get; set; }
 
-        //public ApplicationContext()
-        //{
-        //    base.Database.EnsureCreated();
-        //}
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Server=Tanianotebook\\sqlexpress;Database=CashMachine;Trusted_Connection=True;");
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Account>().HasData(
+                new Account
+                {
+                    AccountId = 1,
+                    Amount= 80000,
+                }
+            );
+
+            modelBuilder.Entity<Money>().HasData(
+                new Money { Id = 1, Value = 5000, Quantity = 25 },
+                new Money { Id = 2, Value = 1000, Quantity = 50 },
+                new Money { Id = 3, Value = 200, Quantity = 50 },
+                new Money { Id = 4, Value = 100, Quantity = 100 }
+            );
         }
     }
 }

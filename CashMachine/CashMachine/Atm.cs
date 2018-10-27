@@ -7,6 +7,6 @@ namespace CashMachine
 {
     public class Atm
     {
-        public IEnumerable<Money> Money { get; set; }
+        public IEnumerable<Money> Money;// { get; set; }
     }
 }

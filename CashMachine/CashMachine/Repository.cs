@@ -12,25 +12,16 @@ namespace CashMachine
             using (ApplicationContext context = new ApplicationContext())
             {
                 var bancnotesInfo = context.Money.
-                    OrderByDescending (n=>n.Value).ToList();
-                return bancnotesInfo;
+                OrderByDescending(n => n.Value).ToList();
+                return bancnotesInfo;                
             }
-        }    
-
+        } 
+   
         public Account GetBalance()
         {
             using (ApplicationContext context = new ApplicationContext())
             {
-                if (!context.Accounts.Any())
-                {
-                    Account account = new Account
-                    {
-                        Amount = 20000000
-                    };
-
-                    context.Add(account);
-                    context.SaveChanges();
-                }
+                
                 var balance = context.Accounts.First();
                 return balance;
             }
