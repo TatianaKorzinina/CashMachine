@@ -37,7 +37,7 @@
 
 3. Для пополнения счета, сделать запрос POST с URL /api/atm/refillbalance.
 В теле запроса json {"accountId":1,"amount":3500}, где amount - сумма для пополнения баланса.
-Отввет вида {
+Ответ вида {
     "accountId": 1,
     "amount": 9989200
 }
