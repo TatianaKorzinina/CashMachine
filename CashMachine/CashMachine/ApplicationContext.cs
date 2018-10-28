@@ -27,10 +27,10 @@ namespace CashMachine
             );
 
             modelBuilder.Entity<Money>().HasData(
-                new Money { Id = 1, Value = 5000, Quantity = 25 },
+                new Money { Id = 1, Value = 200, Quantity = 50 },
                 new Money { Id = 2, Value = 1000, Quantity = 50 },
-                new Money { Id = 3, Value = 200, Quantity = 50 },
-                new Money { Id = 4, Value = 100, Quantity = 100 }
+                new Money { Id = 3, Value = 100, Quantity = 100 },
+                new Money { Id = 4, Value = 5000, Quantity = 25 }
             );
         }
     }

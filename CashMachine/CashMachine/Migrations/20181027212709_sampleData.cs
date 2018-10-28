@@ -16,7 +16,7 @@ namespace CashMachine.Migrations
                 columns: new[] { "Id", "Quantity", "Value" },
                 values: new object[,]
                 {
-                    { 1, 50, 500 },
+                    { 1, 50, 200 },
                     { 2, 50, 1000 },
                     { 3, 100, 100 },
                     { 4, 25, 5000 }
