@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 namespace CashMachine
 {
     public class Repository:IRepository
-    {   // get info about bancnotes values and quantities
+    {   
+        // получение информации о состоянии ячеек в банкомате: купюры в наличии и их количество
         public IEnumerable<Money> GetBancnotesInfo()
         {
             using (ApplicationContext context = new ApplicationContext())
@@ -35,7 +36,6 @@ namespace CashMachine
                 var userBanknotes = new List<Money>();
                 // если в банкомате есть хоть одна банкнота, необходимая для снятия сумма набирается из купюр,
                 //имеющихся в банкомате
-                // if there is at least one banknote in an ATM, the required amount is drawn from banknotes available in an ATM
                 if (banknotes.Any())
                 {
                     int reminder = getCash;
@@ -56,8 +56,6 @@ namespace CashMachine
                     }
                     // если необходимая сумма набралась, то сумма на счете уменьшается на снятую сумму и количество банкнот в банкомате 
                     //так же уменьшается на количество, необходимое для выдачи
-                    //if the required amount is accumulated, the amount on the account is reduced by the withdrawn amount 
-                    //and the number of banknotes in the ATM is also reduced by the amount required for withdrawal
                     if (reminder == 0)
                     {
                         foreach (var nominal in banknotes)
